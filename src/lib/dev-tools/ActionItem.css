@@ -1,0 +1,20 @@
+.mdt-action-item {
+    background-color: #272727;
+    color: #808080;
+}
+
+.mdt-action-item:hover {
+    background-color: rgba(255,255,255,.03);
+}
+
+.mdt-action-item.active {
+    background-color: rgba(255,255,255,.1);
+}
+
+.mdt-action-item.skipped {
+    text-decoration: line-through;
+}
+
+.mdt-action-item.future {
+    opacity: .6;
+}

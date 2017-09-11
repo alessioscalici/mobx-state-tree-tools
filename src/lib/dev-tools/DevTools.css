@@ -1,0 +1,177 @@
+.dev-tools {
+    background-color: #272727;
+    color: #808080;
+    font-family: monospace;
+    font-size: 11px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    transition: bottom 300ms;
+}
+
+.dev-tools .mdt-wrapper {
+    display: flex;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.dev-tools .mdt-resize-tools {
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+
+.dev-tools .mdt-resize-handle {
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    background: #919191;
+    cursor: ns-resize;
+}
+
+.dev-tools .hide-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: none;
+    color: #919191;
+    font-size: 15px;
+}
+.dev-tools .hide-btn:hover {
+    background: transparent;
+    color: #cccccc;
+}
+
+.dev-tools .show-btn {
+    position: absolute;
+    top: -25px;
+    right: 5px;
+    background: #000000;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+.dev-tools .show-btn:hover {
+    background: #333;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+
+
+.dev-tools .state-monitor {
+    display: flex;
+}
+
+
+.dev-tools button {
+    background: transparent;
+    display: inline-block;
+    padding: 3px 5px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #d5d5d5;
+    font-family: monospace;
+    font-size: 11px;
+    cursor: pointer;
+    appearance: none;
+}
+
+.dev-tools button:focus {
+    outline: none;
+}
+
+.dev-tools button:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.dev-tools button.active {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dev-tools button[disabled] {
+    color: #595959;
+    border-color: transparent;
+    cursor: not-allowed;
+}
+.dev-tools button[disabled=disabled]:hover {
+    background: transparent;
+}
+
+
+
+.dev-tools button.btn-success {
+    background: rgba(100, 255, 100, .2);
+}
+
+.dev-tools button.btn-error {
+    background: rgba(255, 100, 100, .2);
+}
+
+.dev-tools button.btn-warning {
+    background: rgba(255, 255, 100, .2);
+}
+
+
+.dev-tools .text-error {
+    color: #ff7f7f;
+}
+
+.dev-tools .text-warning {
+    color: #ffdc9e;
+}
+
+.dev-tools .mdt-state-view {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dev-tools .mdt-diff-object-tree {
+    display: flex;
+    flex-direction: column;
+}
+
+.dev-tools .diff-trees-comparison {
+    overflow: auto;
+}
+
+.mdt-action-tools {
+    display: flex;
+    flex-direction: column;
+}
+
+.mdt-actions-list {
+    width: 400px;
+    padding-left: 15px;
+    overflow: auto;
+}
+
+.mdt-action-item {
+    position: relative;
+    height: 21px;
+    line-height: 21px;
+    padding-left: 5px;
+}
+
+.mdt-action-item .right-bar {
+    position: absolute;
+    right: 5px;
+}
+
+.mdt-action-item.current:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border: 6px solid transparent;
+    border-left-color: white;
+    left: -10px;
+    top: 4px;
+}
+
+
+.mdt-action-view .action-name {
+    color: white;
+    font-size: 14px;
+}
+

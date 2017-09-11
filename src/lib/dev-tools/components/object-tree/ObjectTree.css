@@ -1,0 +1,145 @@
+.object-tree-node {
+    text-align: left;
+
+    line-height: 1.5em;
+
+    color: #d5d5d5;
+    font-family: monospace;
+    font-size: 11px;
+}
+
+.object-tree-node .pre-row{
+    display: inline-block;
+    width: .7em;
+    height: .7em;
+    line-height: .7em;
+    text-align: center;
+    margin-right: 5px;
+    font-size: 14px;
+    user-select: none;
+    cursor: pointer;
+    color: #d5d5d5;
+
+    position: absolute;
+    left: -12px;
+    top: 1px;
+}
+
+.object-tree-node .indented-row {
+    display: inline-block;
+    position: relative;
+}
+
+
+
+.object-tree-branch .prop-name {
+    color: #e36eec;
+}
+
+.object-tree-row .visible-on-hover {
+    visibility: hidden;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.object-tree-row:hover .visible-on-hover {
+    visibility: visible;
+}
+
+
+
+
+.object-tree-leaf .prop-name {
+    color: #e36eec;
+}
+.object-tree-leaf .literal-value {
+    color: #997fff;
+}
+.object-tree-leaf .string-value {
+    color: #e93f3b;
+}
+.object-tree-leaf .null-value {
+    color: #7f7f7f;
+}
+
+.object-tree-row {
+    border-left: 5px solid transparent;
+    display: block;
+    padding-left: 10px;
+}
+
+.object-tree-node.diff-placeholder  {
+    visibility: hidden;
+}
+
+.object-tree-node.diff-op-add .object-tree-row {
+    border-left-color: rgba(0, 255, 0, .4);
+    background: rgba(0, 255, 0, .05);
+}
+.object-tree-node.diff-op-remove .object-tree-row {
+    border-left-color: rgba(255, 0, 0, .4);
+    background: rgba(255, 0, 0, .05);
+}
+
+.object-tree-branch.diff-op-change > .object-tree-row {
+    border-left-color: rgba(255, 255, 0, .2);
+
+}
+
+.object-tree-leaf.diff-op-change > .object-tree-row {
+    border-left-color: rgba(255, 255, 0, .4);
+    background: rgba(255, 255, 0, .05);
+}
+
+.object-tree-node.target-node > .object-tree-row {
+    border-left-color: rgba(255, 255, 255, .4);
+    background: rgba(255, 255, 255, .05);
+}
+
+
+
+.object-tree-filter-line {
+    border-bottom: 1px solid rgba(255,255,255,.05);
+}
+input.object-tree-filter {
+    appearance: none;
+    background: transparent;
+    border: none;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    color: #d5d5d5;
+}
+input.object-tree-filter:focus {
+    outline: none;
+}
+
+
+.object-tree-filter-line .right-bar {
+    float: right;
+}
+
+
+
+.object-breadcrumbs-line {
+    font-family: monospace;
+    font-size: 11px;
+    color: #d5d5d5;
+    padding: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.object-breadcrumbs-node {
+    cursor: pointer;
+    color: #997fff;
+}
+.object-breadcrumbs-node:hover {
+    text-decoration: underline;
+}
+
+.object-breadcrumbs-node.last {
+    cursor: initial;
+    color: #d5d5d5;
+    text-decoration: none;
+}
+
+.diff-trees-comparison {
+    display: flex;
+}

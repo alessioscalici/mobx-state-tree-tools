@@ -1,0 +1,13 @@
+.mdt-filtered-object-tree {
+    position: relative;
+}
+
+.mdt-filtered-object-tree .tools-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.mdt-filtered-object-tree .object-view {
+    position: relative;
+}
