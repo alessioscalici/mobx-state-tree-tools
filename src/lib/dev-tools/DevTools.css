@@ -7,6 +7,7 @@
     width: 100%;
     bottom: 0;
     transition: bottom 300ms;
+    display: flex;
 }
 
 .dev-tools .mdt-wrapper {
@@ -128,6 +129,7 @@
 .dev-tools .mdt-diff-object-tree {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .dev-tools .diff-trees-comparison {

@@ -3,7 +3,8 @@
 ##TO DO
 - Save state with name (a popup should open to insert a new name, with default name as "state" and default extension "json")
 - when clicking on a state tree element, it should open that element in the DIFF state tree, already pinned.
-- fix the overflow: auto and use SCSS
+- use SCSS
+- arrow up/down should change action list when selected
 
 
 Install dependencies
