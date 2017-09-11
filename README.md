@@ -1,4 +1,9 @@
-# mobx-state-tree-tools
+# mobx-state-tree-tools (WIP)
+
+##TO DO
+- Save state with name (a popup should open to insert a new name, with default name as "state" and default extension "json")
+- when clicking on a state tree element, it should open that element in the DIFF state tree, already pinned.
+- fix the overflow: auto and use SCSS
 
 
 Install dependencies

@@ -30,7 +30,7 @@ const ActionLogModel = types.model('ActionLog',
 const ActionLogFactory = {
     createFromAction: (action, patches, initial, delay) => { // FIXME initial and delay
         let actionLogItem = ActionLogModel.create({
-                id: uniqueId('act_'),
+                id: 'act_' + Date.now() + '_' + uniqueId(),
                 skip: false,
                 targetPath: action && isStateTreeNode(action.object) ? getPath(action.object) : '',
                 targetTypeName: action && isStateTreeNode(action.object) ? getType(action.object).name : '',
@@ -187,6 +187,13 @@ const createStateTreeModel = (store) => {
                 applySnapshot(this.stateB, this.initialSnapshot);
                 this.isActionLogDisabled = false;
 
+            },
+            resetAll(snapshot) {
+                applySnapshot(this, snapshot);
+                this.currentAction = last(this.actionLog);
+                this.selectedAction = this.currentAction;
+                this.isActionLogDisabled = false;
+                this.gotoAction(this.currentAction.id);
             },
             sweep() {
                 if (this.currentAction.skip === true) {
@@ -362,7 +369,7 @@ function applyCalculatedState(instance, lastActionId) {
         }
 
         let action = instance.actionLog[i].action,
-            targetPath = getPath(action.object),
+            targetPath = instance.actionLog[i].targetPath,
             targetNode = resolvePath(instance.stateB, targetPath);
 
         applyAction(targetNode, action);
@@ -401,7 +408,7 @@ function applyActionsUntil(instance, stateTree, lastActionId, includeLastOne = t
         }
 
         let action = instance.actionLog[i].action,
-            targetPath = getPath(action.object),
+            targetPath = instance.actionLog[i].targetPath,
             targetNode = resolvePath(stateTree, targetPath);
 
         applyAction(targetNode, action);

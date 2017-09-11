@@ -186,7 +186,7 @@ class DevTools extends Component {
 
                         {stepBackButton} - {stepForwardButton}
 
-                        <JsonFileExport object={this.stateTreeModel.store} />
+                        <JsonFileExport object={this.stateTreeModel} />
 
                         <JsonFileImport onLoad={this.onLoadState}/>
 
@@ -250,7 +250,7 @@ class DevTools extends Component {
 
     onLoadState(state) {
         try {
-            this.stateTreeModel.reset(state);
+            this.stateTreeModel.resetAll(state);
         } catch (e) {
             // FIXME show error
             alert('The imported JSON snapshot is not compatible with the current type');
