@@ -17,14 +17,14 @@ const Timer = types.model("Timer", {
 }, {
     increment() {
 
-        this.prevValues.push({ id: Math.random()+'', num: this.value} );
+        this.prevValues.push({ id: 'fake_id', num: this.value} );
 
         this.value++;
 
         this.random[0].num = Math.random()*10
     },
     decrement(amount) {
-        this.prevValues.push({ id: Math.random()+'', num: this.value});
+        this.prevValues.push({ id: 'fake_id', num: this.value});
         this.value -= amount || 1;
 
         this.random[0].num = Math.random()*10

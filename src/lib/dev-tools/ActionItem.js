@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react'
-import { isFunction } from 'lodash'
+import { isFunction, isEqual, pick } from 'lodash'
 
 import './ActionItem.css'
 
@@ -26,6 +26,10 @@ class ActionItem extends Component {
         };
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        return this.state.rightBarHover !== nextState.rightBarHover ||
+            !isEqual(pick(this.props, ['active', 'current', 'skipped', 'future']), pick(nextProps, ['active', 'current', 'skipped', 'future']));
+    }
 
     render() {
 

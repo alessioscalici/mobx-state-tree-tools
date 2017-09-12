@@ -4,6 +4,8 @@ import './App.css';
 import Timer from './components/Timer.js'
 import appState from './state/app.js'
 
+import MobxDevTools from 'mobx-react-devtools'
+
 import DevTools from '../lib/dev-tools/DevTools.js'
 
 
@@ -22,7 +24,7 @@ class App extends Component {
       };
     return (
       <div className="App">
-
+        <MobxDevTools/>
 
         <Timer appState={appState}/>
 

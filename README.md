@@ -5,6 +5,8 @@
 - arrow up/down should change action list when selected
 - use the gear button in tree objects to show/hide breadcrumbs/pins, filter etc
 - optimize re-renders (now it renders the whole tree after every change, try with multiple actions)
+  - action item: done
+  - tree node: probably better refactoring to a non recursive rendering (indented list)
 
 
 Install dependencies
