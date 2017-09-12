@@ -49,8 +49,12 @@ class JsonFileExport extends Component {
             a.href = URL.createObjectURL(file);
             a.download = name;
         }
+        let fileName = prompt('Insert state file name', 'state.json');
+        if (!fileName) {
+            return;
+        }
         let json = this.props.object.toJSON ? this.props.object.toJSON() : this.props.object;
-        download(JSON.stringify(json, null, 2), 'state.json', 'text/plain');
+        download(JSON.stringify(json, null, 2), fileName, 'text/plain');
     }
 
 }
