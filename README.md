@@ -2,9 +2,9 @@
 
 ##TO DO
 - Save state with name (a popup should open to insert a new name, with default name as "state" and default extension "json")
-- when clicking on a state tree element, it should open that element in the DIFF state tree, already pinned.
 - use SCSS
 - arrow up/down should change action list when selected
+- use the gear button in tree objects to show/hide breadcrumbs/pins, filter etc
 
 
 Install dependencies

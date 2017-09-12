@@ -7,6 +7,7 @@ import { debounce, uniqueId, findIndex, find, forEach, last, first, filter, find
 
 
 import ObjectTreeModel from '../models/ObjectTreeModel.js'
+import ObjectDiffTreeModel from '../models/ObjectDiffTreeModel.js'
 
 
 const ActionLogModel = types.model('ActionLog',
@@ -63,7 +64,9 @@ const createStateTreeModel = (store) => {
                 'diff'
             ),
             stateObjectTreeModel: ObjectTreeModel,
-            stateTreeHiglightedPath: types.maybe(types.string),
+
+            diffTree: ObjectDiffTreeModel,
+
             get isFirstAction () {
                 return this.currentAction === this.actionLog[0];
             },
@@ -232,10 +235,6 @@ const createStateTreeModel = (store) => {
                 this.stateViewId = viewId;
             },
 
-            highlightStateTreeNode(path) {
-                this.stateTreeHiglightedPath = path;
-            },
-
             setHeight(intValue) {
                 this.height = intValue;
             },
@@ -261,17 +260,29 @@ const createStateTreeModel = (store) => {
     });
     stateObjectTreeModel.setObject(store);
 
+    let diffTreeModel = ObjectDiffTreeModel.create({
+        name: '@@ROOT',
+        explodedNodes: ['']
+    });
+
+    let stateA = clone(store),
+        stateB = clone(store);
+
+    diffTreeModel.setObject(stateB);
+    diffTreeModel.setOldObject(stateA);
+
     let instance = StateTreeModel.create(
         {
-            stateA: clone(store),
-            stateB: clone(store),
+            stateA: stateA,
+            stateB: stateB,
             actionLog: [
                 initialAction
             ],
             currentAction: initialAction,
             selectedAction: initialAction,
             initialSnapshot: getSnapshot(store),
-            stateObjectTreeModel: stateObjectTreeModel
+            stateObjectTreeModel: stateObjectTreeModel,
+            diffTree: diffTreeModel
         }
     );
     instance.setStore(store);

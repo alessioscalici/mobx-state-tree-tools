@@ -17,10 +17,12 @@ import JsonFileImport from './components/text-file/JsonFileImport.js'
 import JsonFileExport from './components/text-file/JsonFileExport.js'
 
 
-
 // containers
 import ButtonGroupSelector from './containers/ButtonGroupSelector.js'
 import PatchesView from './containers/PatchesView.js'
+
+// models
+import StateViewEnum from './models/StateViewEnum.js'
 
 
 import './DevTools.css'
@@ -101,17 +103,14 @@ class DevTools extends Component {
 
 
         let diffTreeView = <DiffObjectTree
-            oldObject={this.stateTreeModel.stateA}
-            object={this.stateTreeModel.stateB}
             highlightedPath={this.stateTreeModel.selectedAction.targetPath.split('/').join('.').substring(1)}
-            objectName={'@@ROOT'}
+            model={this.stateTreeModel.diffTree}
             />;
 
         let stateTreeView = <FilteredObjectTree
             object={this.stateTreeModel.stateB}
             objectName={'initialSnapshot'}
             model={this.stateTreeModel.stateObjectTreeModel}
-            highlightedPath={this.stateTreeModel.stateTreeHiglightedPath}
             />;
 
 
@@ -172,6 +171,14 @@ class DevTools extends Component {
         ;
 
 
+        let viewSelectorOptions = [
+            { text: 'Action', value: StateViewEnum.ACTION_VIEW },
+            { text: 'Patches', value: StateViewEnum.PATCHES_VIEW },
+            { text: 'State', value: StateViewEnum.STATE_VIEW },
+            { text: 'Diff', value: StateViewEnum.DIFF_VIEW }
+        ];
+
+
         let wrapper = <div className="dev-tools" style={{ height: this.stateTreeModel.height, bottom: this.stateTreeModel.bottom }}>
 
             <div className="mdt-wrapper">
@@ -205,7 +212,7 @@ class DevTools extends Component {
                 <div className="mdt-state-view">
                     <div>
                         <ButtonGroupSelector
-                            options={[ { text: 'Action', value: 'action' }, { text: 'Patches', value: 'patches' }, { text: 'State', value: 'state' }, { text: 'Diff', value: 'diff' } ]}
+                            options={viewSelectorOptions}
                             value={this.stateTreeModel.stateViewId}
                             onClickOption={this.onSelectStateView}
                             />
@@ -330,10 +337,9 @@ class DevTools extends Component {
     }
 
     onClickPatchPath(ev, path) {
-        this.stateTreeModel.setStateView('state');
-        path = path.substring(1).replace(/\//g, '.');
-        this.stateTreeModel.stateObjectTreeModel.explodePath(path, true);
-        this.stateTreeModel.highlightStateTreeNode(path);
+        this.stateTreeModel.setStateView('diff');
+        path = path.substring(1).replace(/\//g, '.'); // FIXME move path normalization
+        this.stateTreeModel.diffTree.pinNode(path);
     }
 }
 

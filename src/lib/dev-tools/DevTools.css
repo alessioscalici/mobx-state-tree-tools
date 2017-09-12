@@ -136,6 +136,10 @@
     overflow: auto;
 }
 
+.dev-tools .diff-trees-comparison > :not(:first-child) {
+    margin-left: 10px;
+}
+
 .mdt-action-tools {
     display: flex;
     flex-direction: column;

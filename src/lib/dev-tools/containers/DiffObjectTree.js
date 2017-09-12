@@ -28,20 +28,7 @@ class DiffObjectTree extends Component {
         this.onClickBreadcrumbsNode = this.onClickBreadcrumbsNode.bind(this);
         this.onClickOption = this.onClickOption.bind(this);
 
-    }
-
-    componentWillMount() {
-        this.treeModel = ObjectDiffTreeModel.create({
-            name: this.props.objectName || '',
-            explodedNodes: ['']
-        });
-        this.treeModel.setObject(this.props.object);
-        this.treeModel.setOldObject(this.props.oldObject);
-    }
-
-    componentWillReceiveProps(props) {
-        this.treeModel.setObject(props.object);
-        this.treeModel.setOldObject(props.oldObject);
+        this.treeModel = props.model;
     }
 
     render() {
