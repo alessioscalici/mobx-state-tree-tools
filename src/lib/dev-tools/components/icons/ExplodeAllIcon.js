@@ -4,9 +4,9 @@ import React from 'react'
 export default () =>
 
 <span
-    className="mdt-icon circled-plus"
+    className="mdt-icon explode-all"
     role="img"
-    aria-label="explode"
+    aria-label="explode all"
     >
     &#x1f86e;
 </span>

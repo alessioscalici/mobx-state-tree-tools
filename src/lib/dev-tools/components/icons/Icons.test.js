@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { isElementOfType } from 'react-dom/test-utils';
 
-import CircledMinusIcon from './CircledMinusIcon.js';
-import CircledPlusIcon from './CircledPlusIcon.js';
+import CollapseAllIcon from './CollapseAllIcon.js';
+import ExplodeAllIcon from './ExplodeAllIcon.js';
 import GearIcon from './GearIcon.js';
 import PinIcon from './PinIcon.js';
 import CollapseIcon from './CollapseIcon.js';
@@ -12,25 +12,25 @@ import ExplodeIcon from './ExplodeIcon.js';
 
 const iconClasses = [
   {
-    name: 'CircledMinusIcon',
-    reactClass: CircledMinusIcon,
-    ariaLabel: 'collapse',
-    classes: ['circled', 'circled-minus']
+    name: 'CollapseAllIcon',
+    reactClass: CollapseAllIcon,
+    ariaLabel: 'collapse all',
+    classes: ['collapse-all']
   },
   {
-    name: 'CircledMinusIcon',
-    reactClass: CircledPlusIcon,
-    ariaLabel: 'explode',
-    classes: ['circled', 'circled-plus']
+    name: 'ExplodeAllIcon',
+    reactClass: ExplodeAllIcon,
+    ariaLabel: 'explode all',
+    classes: ['explode-all']
   },
   {
-    name: 'CircledMinusIcon',
+    name: 'GearIcon',
     reactClass: GearIcon,
     ariaLabel: 'settings',
     classes: ['gear']
   },
   {
-    name: 'CircledMinusIcon',
+    name: 'PinIcon',
     reactClass: PinIcon,
     ariaLabel: 'pin',
     classes: ['circled', 'pin']

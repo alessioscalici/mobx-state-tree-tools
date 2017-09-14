@@ -8,8 +8,8 @@ import { isArray, isObject, isDate, isFunction, forEach, isRegExp, compact, get,
 import ObjectTreeLeaf from './components/object-tree/ObjectTreeLeaf.js'
 import ObjectTreeBranch from './components/object-tree/ObjectTreeBranch.js'
 import PinIcon from './components/icons/PinIcon.js'
-import CircledPlusIcon from './components/icons/CircledPlusIcon.js'
-import CircledMinusIcon from './components/icons/CircledMinusIcon.js'
+import ExplodeAllIcon from './components/icons/ExplodeAllIcon.js'
+import CollapseAllIcon from './components/icons/CollapseAllIcon.js'
 
 
 
@@ -171,8 +171,8 @@ class ObjectTreeNode extends Component {
 
         let onHoverIcons = <span className="visible-on-hover">
             { pinIcon }
-            <span title="Explode all" onClick={this.onClickExplodeChildren}><CircledPlusIcon /></span>
-            <span title="Collapse all" onClick={this.onClickCollapseChildren}><CircledMinusIcon /></span>
+            <span title="Explode all" onClick={this.onClickExplodeChildren}><ExplodeAllIcon /></span>
+            <span title="Collapse all" onClick={this.onClickCollapseChildren}><CollapseAllIcon /></span>
         </span>;
 
 
