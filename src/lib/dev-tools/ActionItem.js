@@ -24,11 +24,13 @@ class ActionItem extends Component {
         this.state = {
             rightBarHover: false
         };
+
+        this.relevantProps = ['active', 'current', 'skip', 'future'];
     }
 
     shouldComponentUpdate(nextProps, nextState) {
         return this.state.rightBarHover !== nextState.rightBarHover ||
-            !isEqual(pick(this.props, ['active', 'current', 'skipped', 'future']), pick(nextProps, ['active', 'current', 'skipped', 'future']));
+            !isEqual(pick(this.props, this.relevantProps), pick(nextProps, this.relevantProps));
     }
 
     render() {
