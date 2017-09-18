@@ -32,6 +32,10 @@ class ObjectTreeNode extends Component {
 
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        return false;
+    }
+
     render() {
 
         let treeModel = this.props.treeModel;
@@ -192,6 +196,7 @@ class ObjectTreeNode extends Component {
         return <ObjectTreeBranch
             className={className}
             name={nodeName}
+            path={this.getFullNodePath()}
             type={nodeType}
             nodePath={nodePath}
             isCollapsed={isCollapsed}

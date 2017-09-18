@@ -34,7 +34,7 @@ class App extends Component {
         <button onClick={ () => { appState.timer.decrement() } }>-</button>
 
         <button onClick={ () => {
-            for (let i=0; i<10; ++i) {
+            for (let i=0; i<800; ++i) {
                 appState.timer.increment();
             }
          } }>++++</button>
