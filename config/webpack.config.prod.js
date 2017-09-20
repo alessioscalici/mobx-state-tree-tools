@@ -149,8 +149,8 @@ module.exports = {
     }),
   ],
   externals: {
-   'react': 'react',
-   'react-dom': 'reactDOM'
+ //  'react': 'react',
+ //  'react-dom': 'reactDOM'
   },
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
