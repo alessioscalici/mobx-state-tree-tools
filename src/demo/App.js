@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import reactDOM from 'react-dom';
+
 import './App.css';
 
 import Timer from './components/Timer.js'

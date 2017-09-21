@@ -149,8 +149,18 @@ module.exports = {
     }),
   ],
   externals: {
-//   'react': 'react',
-//   'react-dom': 'reactDOM'
+    'react' : {
+      commonjs: 'react',commonjs2: 'react',
+    },
+    'react-dom' : {
+      commonjs: 'react-dom',commonjs2: 'react-dom',
+    },
+    'mobx' : {
+      commonjs: 'mobx',commonjs2: 'mobx',
+    },
+    'mobx-state-tree' : {
+      commonjs: 'mobx-state-tree',commonjs2: 'mobx-state-tree',
+    },
   },
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
