@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import reactDOM from 'react-dom';
 import './App.css';
 
 import Timer from './components/Timer.js'
@@ -6,7 +7,8 @@ import appState from './state/app.js'
 
 import MobxDevTools from 'mobx-react-devtools'
 
-import DevTools from '../lib/dev-tools/DevTools.js'
+import DevTools from 'aaa'
+
 
 
 

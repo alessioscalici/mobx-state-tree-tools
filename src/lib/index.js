@@ -1,4 +1,5 @@
-export {
+import
   DevTools
-} from './dev-tools/DevTools.js';
+ from './dev-tools/DevTools.js';
 
+export default DevTools
