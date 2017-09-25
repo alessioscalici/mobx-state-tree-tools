@@ -29,7 +29,7 @@ class ObjectTreeNode extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return false;
+    return true;
   }
 
   render() {

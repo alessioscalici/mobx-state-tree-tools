@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { isEqual } from 'lodash'
+
 import CollapseIcon from '../icons/CollapseIcon.js'
 import ExplodeIcon from '../icons/ExplodeIcon.js'
 
@@ -13,8 +15,8 @@ class ObjectTreeBranch extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.children.length !== this.props.children.length ||
-      (nextProps.isCollapsed !== this.props.isCollapsed)
+    return true//!isEqual(nextProps.children, this.props.children) ||
+    //  (nextProps.isCollapsed !== this.props.isCollapsed)
   }
 
   render() {

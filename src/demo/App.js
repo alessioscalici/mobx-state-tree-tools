@@ -7,7 +7,7 @@ import appState from './state/app.js'
 
 import MobxDevTools from 'mobx-react-devtools'
 
-import DevTools from 'aaa'
+import DevTools from '../lib'
 
 
 
@@ -15,15 +15,6 @@ import DevTools from 'aaa'
 class App extends Component {
   render() {
 
-      let pippo = {
-          payload: {
-              nenni: [1,2,3,4,5]
-          },
-          meta: {
-              pappo: '12345',
-              peppo: /abcdef/
-          }
-      };
     return (
       <div className="App">
         <MobxDevTools/>
@@ -32,7 +23,7 @@ class App extends Component {
 
 
         <button onClick={ () => { appState.popValue() } }>POP value</button>
-        <button onClick={ () => { appState.timer.increment( pippo ) } }>+</button>
+        <button onClick={ () => { appState.timer.increment() } }>+</button>
         <button onClick={ () => { appState.timer.decrement() } }>-</button>
 
         <button onClick={ () => {
