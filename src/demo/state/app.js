@@ -69,7 +69,11 @@ const store = Store.create({  timer: {id: 'timerId', value: 0, prevValues: [], r
         arrayValue: [1, 2, 3],
         arrayObjects: [ { name: 'pippo' }, { name: 'pippo' }, { withChild: { name: 'pippo' } }]
     }
-})
+},
+  {
+      alert: () => {} // FIXME environment
+  }
+)
 
 
 export default store

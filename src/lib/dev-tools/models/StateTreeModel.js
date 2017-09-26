@@ -49,12 +49,10 @@ const ActionLogFactory = {
 
 const createStateTreeModel = (store) => {
 
-    let StoreType = getType(store);
+    var localStateA, localStateB;
 
     const StateTreeModel = types.model('StateTree',
         {
-            stateA: StoreType,
-            stateB: StoreType,
             actionLog: types.array(ActionLogModel),
             currentAction: types.reference(ActionLogModel),
             selectedAction: types.reference(ActionLogModel),
@@ -67,6 +65,12 @@ const createStateTreeModel = (store) => {
 
             diffTree: ObjectDiffTreeModel,
 
+            get stateA() {
+              return localStateA;
+            },
+            get stateB() {
+              return localStateB;
+            },
             get isFirstAction () {
                 return this.currentAction === this.actionLog[0];
             },
@@ -145,8 +149,8 @@ const createStateTreeModel = (store) => {
                 });
 
                 this.currentAction = actionLogItem;
-                applyActionsUntil(this, this.stateA, actionLogItem.id, false);
-                applyActionsUntil(this, this.stateB, actionLogItem.id, true);
+                applyActionsUntil(this, localStateA, actionLogItem.id, false);
+                applyActionsUntil(this, localStateB, actionLogItem.id, true);
                 this.selectedAction = actionLogItem;
             },
             selectAction(actionId) {
@@ -158,7 +162,7 @@ const createStateTreeModel = (store) => {
                 this.selectedAction = actionId; // also selects the action
                 applyCalculatedState(this, actionId);
                 this.isActionLogDisabled = true;
-                applySnapshot(this.store, getSnapshot(this.stateB));
+                applySnapshot(this.store, getSnapshot(localStateB));
                 this.isActionLogDisabled = false;
                 updateFutureFlag(this, actionId);
             },
@@ -186,8 +190,8 @@ const createStateTreeModel = (store) => {
                 this.selectedAction = this.currentAction;
                 this.actionLog = [this.actionLog[0]];
                 applySnapshot(this.store, this.initialSnapshot);
-                applySnapshot(this.stateA, this.initialSnapshot);
-                applySnapshot(this.stateB, this.initialSnapshot);
+                applySnapshot(localStateA, this.initialSnapshot);
+                applySnapshot(localStateB, this.initialSnapshot);
                 this.isActionLogDisabled = false;
 
             },
@@ -265,16 +269,14 @@ const createStateTreeModel = (store) => {
         explodedNodes: ['']
     });
 
-    let stateA = clone(store),
-        stateB = clone(store);
+    localStateA = clone(store);
+    localStateB = clone(store);
 
-    diffTreeModel.setObject(stateB);
-    diffTreeModel.setOldObject(stateA);
+    diffTreeModel.setObject(localStateB);
+    diffTreeModel.setOldObject(localStateA);
 
     let instance = StateTreeModel.create(
         {
-            stateA: stateA,
-            stateB: stateB,
             actionLog: [
                 initialAction
             ],
