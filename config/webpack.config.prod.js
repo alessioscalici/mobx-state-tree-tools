@@ -128,7 +128,7 @@ module.exports = {
       }
     ]    
   },
-  plugins: [
+  plugins: [/*
     // Minify the code.
     new webpack.optimize.UglifyJsPlugin({
       compress: {
@@ -147,7 +147,7 @@ module.exports = {
       },
       sourceMap: shouldUseSourceMap,
     }),
-  ],
+  */],
   externals: {
     'react' : {
       commonjs: 'react',commonjs2: 'react',
